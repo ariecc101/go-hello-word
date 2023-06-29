@@ -34,7 +34,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-              Run Docker
+            //   Run Docker
                 script { 
                 
                 echo "Begin to Deploy" 
