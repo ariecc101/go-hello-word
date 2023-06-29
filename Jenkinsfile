@@ -24,13 +24,15 @@ pipeline {
             }
         }
 
-        // stage('Push image') {
-        //     steps {
-        //         withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
-        //         dockerImage.push()
-        //         }
-        //     }
-        // }
+        stage('Push image') {
+            steps {
+                script{
+                    withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
+                    dockerImage.push()
+                    }
+                }
+            }
+        }
 
         stage('Deploy') {
             steps {
