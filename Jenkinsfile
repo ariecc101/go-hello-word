@@ -27,7 +27,7 @@ pipeline {
                 
                 echo "Begin to Deploy" 
                 // sh "docker rm hello"
-                sh "docker run -d -p 5000:5000 hello sulaplink001/go-hello-world:dev-$BUILD_NUMBER"
+                sh "docker run -d -p 5000:5000 --name hello sulaplink001/go-hello-world:dev-$BUILD_NUMBER"
 
                 }
             }
