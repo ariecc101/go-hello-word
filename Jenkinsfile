@@ -12,7 +12,7 @@ pipeline {
         stage('Build Image') {
             steps {
               // Build Image
-                // script { 
+                script { 
 
                 // echo "Begin Build Image"
                 dockerImage = docker.build("sulaplink001/go-hello-world:latest")
@@ -20,7 +20,7 @@ pipeline {
                 // sh "docker build -t sulaplink001/go-hello-world:latest . "
                 // sh "docker push sulaplink001/go-hello-world:latest"
 
-                // }
+                }
             }
         }
 
