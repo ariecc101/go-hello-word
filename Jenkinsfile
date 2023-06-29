@@ -38,7 +38,7 @@ pipeline {
                 script { 
                 
                 echo "Begin to Deploy" 
-                sh "docker compose pull && docker compose up -d"
+                sh "docker compose down && docker compose pull && docker compose up -d"
                 }
             }
         }
