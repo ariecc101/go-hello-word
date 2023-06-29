@@ -6,9 +6,3 @@ services:
     restart: always
     ports:
       - 5000:5000
-  app-dev:
-    image: sulaplink001/go-hello-world:dev-VERSIONDEV
-    container_name: go-hello-world_DEV
-    restart: always
-    ports:
-      - 5001:5000

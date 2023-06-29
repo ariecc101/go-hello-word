@@ -14,15 +14,10 @@ pipeline {
               // Build Image
                 script { 
 
-                // echo "Begin Build Image"
+                echo "Begin Build Image"
                 dockerImage = docker.build("sulaplink001/go-hello-world:latest")
-                dockerImage = docker.build("sulaplink001/go-hello-world:dev-$BUILD_NUMBER")
-                // sh "docker build -t sulaplink001/go-hello-world:dev-$BUILD_NUMBER ."
                 // dockerImage = docker.build("sulaplink001/go-hello-world:dev-$BUILD_NUMBER")
-                sh "sed -i 's/VERSIONDEV/$BUILD_NUMBER/g' docker-compose.yml"
-                // sh "docker build -t sulaplink001/go-hello-world:latest . "
-                // sh "docker push sulaplink001/go-hello-world:latest"
-
+                // sh "sed -i 's/VERSIONDEV/$BUILD_NUMBER/g' docker-compose.yml"
                 }
             }
         }
@@ -39,15 +34,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-              // Run Docker
+              Run Docker
                 script { 
                 
                 echo "Begin to Deploy" 
                 sh "docker compose pull && docker compose up -d"
-                // sh "docker stop hello"
-                // sh "docker rm hello"
-                // sh "docker run -d -p 5000:5000 --name hello sulaplink001/go-hello-world:dev-$BUILD_NUMBER"
-
                 }
             }
         }
