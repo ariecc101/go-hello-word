@@ -17,7 +17,7 @@ pipeline {
                 echo "Begin Build"
                 // sh "docker build -t sulaplink001/go-hello-world:dev-$BUILD_NUMBER . "
                 sh "docker build -t sulaplink001/go-hello-world:latest . "
-                sh "docker push sulaplink001/go-hello-world:latest . "
+                sh "docker push sulaplink001/go-hello-world:latest"
 
                 }
             }
