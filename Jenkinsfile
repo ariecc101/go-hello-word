@@ -16,7 +16,8 @@ pipeline {
 
                 // echo "Begin Build Image"
                 dockerImage = docker.build("sulaplink001/go-hello-world:latest")
-                sh "docker build -t sulaplink001/go-hello-world:dev-$BUILD_NUMBER ."
+                dockerImage = docker.build("sulaplink001/go-hello-world:dev-$BUILD_NUMBER")
+                // sh "docker build -t sulaplink001/go-hello-world:dev-$BUILD_NUMBER ."
                 // dockerImage = docker.build("sulaplink001/go-hello-world:dev-$BUILD_NUMBER")
                 sh "sed -i 's/VERSIONDEV/$BUILD_NUMBER/g' docker-compose.yml"
                 // sh "docker build -t sulaplink001/go-hello-world:latest . "
