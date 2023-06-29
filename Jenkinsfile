@@ -40,7 +40,7 @@ pipeline {
                 script { 
                 
                 echo "Begin to Deploy" 
-                sh "docker compose restart"
+                sh "docker compose pull && docker compose restart"
                 // sh "docker stop hello"
                 // sh "docker rm hello"
                 // sh "docker run -d -p 5000:5000 --name hello sulaplink001/go-hello-world:dev-$BUILD_NUMBER"

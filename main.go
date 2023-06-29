@@ -12,7 +12,7 @@ func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World v.2023.06-29_17.54"))
+		w.Write([]byte("Hello World v.2023.06-29_18.07"))
 	})
 	log.Println("Starting server at 5000...")
 	http.ListenAndServe(":5000", r)
