@@ -10,7 +10,7 @@ pipeline {
             }
         }
         stage('Build Image') {
-            // steps {
+            steps {
               // Build Image
                 // script { 
 
@@ -21,12 +21,15 @@ pipeline {
                 // sh "docker push sulaplink001/go-hello-world:latest"
 
                 // }
-            // }
+            }
         }
         stage('Push image') {
+            step {
                 withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
                 dockerImage.push()
                 }
+            }
+
             }
         stage('Deploy') {
             steps {
