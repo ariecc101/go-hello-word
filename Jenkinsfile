@@ -23,12 +23,12 @@ pipeline {
                 // }
             }
         }
-        stage('Push image') {
-            steps {
-                withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
-                dockerImage.push()
-                }
-            }
+        // stage('Push image') {
+        //     steps {
+        //         withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
+        //         dockerImage.push()
+        //         }
+        //     }
 
             }
         stage('Deploy') {
@@ -37,7 +37,7 @@ pipeline {
                 script { 
                 
                 echo "Begin to Deploy" 
-                sh "docker compose up -d"
+                // sh "docker compose up -d"
                 // sh "docker stop hello"
                 // sh "docker rm hello"
                 // sh "docker run -d -p 5000:5000 --name hello sulaplink001/go-hello-world:dev-$BUILD_NUMBER"
