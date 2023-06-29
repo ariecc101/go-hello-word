@@ -9,19 +9,25 @@ pipeline {
                 } 
             }
         }
-        stage('Build') {
-            steps {
+        stage('Build Image') {
+            // steps {
               // Build Image
-                script { 
+                // script { 
 
-                echo "Begin Build"
+                // echo "Begin Build Image"
+                dockerImage = docker.build("sulaplink001/go-hello-world:latest")
                 // sh "docker build -t sulaplink001/go-hello-world:dev-$BUILD_NUMBER . "
-                sh "docker build -t sulaplink001/go-hello-world:latest . "
-                sh "docker push sulaplink001/go-hello-world:latest"
+                // sh "docker build -t sulaplink001/go-hello-world:latest . "
+                // sh "docker push sulaplink001/go-hello-world:latest"
 
+                // }
+            // }
+        }
+        stage('Push image') {
+                withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
+                dockerImage.push()
                 }
             }
-        }
         stage('Deploy') {
             steps {
               // Run Docker
