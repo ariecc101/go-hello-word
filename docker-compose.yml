@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     image: sulaplink001/go-hello-world:dev-VERSIONDEV
-    container_name: go-hello-world
+    container_name: go-hello-world-DEV
     restart: always
     ports:
       - 5001:5000
