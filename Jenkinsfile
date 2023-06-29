@@ -15,7 +15,9 @@ pipeline {
                 script { 
 
                 echo "Begin Build"
-                sh "docker build -t sulaplink001/go-hello-world:dev-$BUILD_NUMBER . "
+                // sh "docker build -t sulaplink001/go-hello-world:dev-$BUILD_NUMBER . "
+                sh "docker build -t sulaplink001/go-hello-world:latest . "
+                sh "docker push sulaplink001/go-hello-world:latest . "
 
                 }
             }
@@ -26,9 +28,10 @@ pipeline {
                 script { 
                 
                 echo "Begin to Deploy" 
-                sh "docker stop hello"
-                sh "docker rm hello"
-                sh "docker run -d -p 5000:5000 --name hello sulaplink001/go-hello-world:dev-$BUILD_NUMBER"
+                sh "docker compose up -d"
+                // sh "docker stop hello"
+                // sh "docker rm hello"
+                // sh "docker run -d -p 5000:5000 --name hello sulaplink001/go-hello-world:dev-$BUILD_NUMBER"
 
                 }
             }

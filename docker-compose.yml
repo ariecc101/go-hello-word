@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    image: sulaplink001/go-hello-world:latest
+    container_name: go-hello-world
+    restart: always
+    ports:
+      - 5000:5000
