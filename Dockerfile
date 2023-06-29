@@ -6,6 +6,7 @@ RUN go mod tidy
 RUN go build -o go-hello-world
 
 FROM alpine:3.11.3
+ADD .env /app
 WORKDIR /app
 COPY --from=builder /app/go-hello-world /app/go-hello-world
 
